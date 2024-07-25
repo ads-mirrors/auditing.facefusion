@@ -2,7 +2,7 @@ import gradio
 
 from facefusion import state_manager
 from facefusion.download import conditional_download
-from facefusion.uis.components import about, benchmark, benchmark_options, execution, execution_queue_count, execution_thread_count, frame_processors, frame_processors_options, memory
+from facefusion.uis.components import about, benchmark, benchmark_options, execution, execution_queue_count, execution_thread_count, processors, processors_options, memory
 
 
 def pre_check() -> bool:
@@ -34,9 +34,9 @@ def render() -> gradio.Blocks:
 				with gradio.Blocks():
 					about.render()
 				with gradio.Blocks():
-					frame_processors.render()
+					processors.render()
 				with gradio.Blocks():
-					frame_processors_options.render()
+					processors_options.render()
 				with gradio.Blocks():
 					execution.render()
 					execution_thread_count.render()
@@ -52,8 +52,8 @@ def render() -> gradio.Blocks:
 
 
 def listen() -> None:
-	frame_processors.listen()
-	frame_processors_options.listen()
+	processors.listen()
+	processors_options.listen()
 	execution.listen()
 	execution_thread_count.listen()
 	execution_queue_count.listen()

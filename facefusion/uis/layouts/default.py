@@ -1,7 +1,7 @@
 import gradio
 
 from facefusion import state_manager
-from facefusion.uis.components import about, common_options, execution, execution_queue_count, execution_thread_count, face_analyser, face_masker, face_selector, frame_processors, frame_processors_options, instant_runner, job_manager, job_runner, memory, output, output_options, preview, source, target, temp_frame, trim_frame, ui_workflow
+from facefusion.uis.components import about, common_options, execution, execution_queue_count, execution_thread_count, face_analyser, face_masker, face_selector, processors, processors_options, instant_runner, job_manager, job_runner, memory, output, output_options, preview, source, target, temp_frame, trim_frame, ui_workflow
 
 
 def pre_check() -> bool:
@@ -19,9 +19,9 @@ def render() -> gradio.Blocks:
 				with gradio.Blocks():
 					about.render()
 				with gradio.Blocks():
-					frame_processors.render()
+					processors.render()
 				with gradio.Blocks():
-					frame_processors_options.render()
+					processors_options.render()
 				with gradio.Blocks():
 					execution.render()
 					execution_thread_count.render()
@@ -61,8 +61,8 @@ def render() -> gradio.Blocks:
 
 
 def listen() -> None:
-	frame_processors.listen()
-	frame_processors_options.listen()
+	processors.listen()
+	processors_options.listen()
 	execution.listen()
 	execution_thread_count.listen()
 	execution_queue_count.listen()
