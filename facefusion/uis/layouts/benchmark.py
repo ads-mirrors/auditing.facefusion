@@ -2,7 +2,7 @@ import gradio
 
 from facefusion import state_manager
 from facefusion.download import conditional_download
-from facefusion.uis.components import about, benchmark, benchmark_options, execution, execution_queue_count, execution_thread_count, processors, processors_options, memory
+from facefusion.uis.components import about, benchmark, benchmark_options, execution, execution_queue_count, execution_thread_count, memory, processors, processors_options
 
 
 def pre_check() -> bool:
