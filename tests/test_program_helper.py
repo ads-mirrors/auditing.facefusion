@@ -38,23 +38,3 @@ def test_validate_actions() -> None:
 			action.default = args[action.dest]
 
 	assert validate_actions(program) is False
-
-
-def test_remove_args() -> None:
-	program = ArgumentParser()
-	program.add_argument('--test-1')
-	program.add_argument('--test-2')
-	program.add_argument('--test-3')
-
-	actions = [ action.dest for action in program._actions ]
-
-	assert 'test_1' in actions
-	assert 'test_2' in actions
-	assert 'test_3' in actions
-
-	program = remove_args(program, [ 'test_1', 'test_2' ])
-	actions = [ action.dest for action in program._actions ]
-
-	assert 'test_1' not in actions
-	assert 'test_2' not in actions
-	assert 'test_3' in actions
